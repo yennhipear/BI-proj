@@ -1,0 +1,46 @@
+﻿-- Thống kê Số ca nhiễm, số ca tử vong, số ca phục hồi của dịch Covid-19 theo từng PHU trong từng năm. 
+select {[Dim Case Status].[Case Status Name],[Dim Case Status].[Case Status Name].&[Deceased], [Dim Case Status].[Case Status Name].&[Recovered]} on columns,
+crossjoin([Dim Geography].[Phu Name].[Phu Name], [Dim Date].[DateH].[Calendar Year]) on rows
+from [BI06 DDS Case]
+where [Measures].[Number Of Case];
+
+-- Thống kê tổng số người tử vong theo Giới Tính và Nhóm Tuổi theo các năm. 
+-- Chú thích: Chỉ có Female và Male và các age group có reported ( loại bỏ not reported)
+select crossjoin({[Dim Gender].[Gender Name].&[Female],[Dim Gender].[Gender Name].&[Male]},[Dim Case Status].[Case Status Name].&[Deceased])on columns,
+non empty 
+Except (crossjoin([Dim Age Group].[Age Group Name].[Age Group Name], [Dim Date].[DateH].[Calendar Year]),
+crossjoin([Dim Age Group].[Age Group Name].&[Not Reported], [Dim Date].[DateH].[Calendar Year])) on rows 
+from [BI06 DDS Case]
+where [Measures].[Number Of Case];
+
+
+-- Thống kê số ca nhiễm của từng thành phố trong mỗi năm 
+WITH MEMBER [Measures].[Severity] AS
+CASE 
+WHEN [Measures].[Number Of Case] < 10000 THEN '< 10000'
+WHEN [Measures].[Number Of Case] >= 10000 and [Measures].[Number Of Case] < 50000 THEN '[10000;50000)'
+WHEN [Measures].[Number Of Case] >= 50000 THEN '> 50000'
+END
+
+MEMBER [Measures].[Case] AS [Measures].[Number Of Case]
+
+select {[Measures].[Case],[Measures].[Severity]} on columns,
+crossjoin([Dim Geography].[Hierarchy].[City Name],[Dim Date].[DateH].[Calendar Year]) on rows
+from [BI06 DDS Case];
+
+
+-- Thống kê số ca tử vong của từng thành phố trong mỗi năm 
+WITH MEMBER [Measures].[Severity Of Deceased] AS
+CASE 
+WHEN ([Measures].[Number Of Case], [Dim Case Status].[Case Status Name].&[Deceased]) < 100 THEN '< 100'
+WHEN ([Measures].[Number Of Case], [Dim Case Status].[Case Status Name].&[Deceased]) >= 100 and ([Measures].[Number Of Case], [Dim Case Status].[Case Status Name].&[Deceased]) <500 THEN '[100;500)'
+WHEN ([Measures].[Number Of Case], [Dim Case Status].[Case Status Name].&[Deceased]) >= 500 and ([Measures].[Number Of Case], [Dim Case Status].[Case Status Name].&[Deceased]) <1000 THEN '[500;1000)'
+WHEN ([Measures].[Number Of Case], [Dim Case Status].[Case Status Name].&[Deceased]) >= 1000 THEN '> 1000'
+END
+
+MEMBER [Measures].[Deceased] AS ([Measures].[Number Of Case],[Dim Case Status].[Case Status Name].&[Deceased])
+
+select {[Measures].[Deceased],[Measures].[Severity Of Deceased]} on columns,
+crossjoin([Dim Geography].[Hierarchy].[City Name],[Dim Date].[DateH].[Calendar Year]) on rows
+from [BI06 DDS Case];
+

@@ -1,0 +1,103 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>CaseCube</Database>
+    <Server>DESKTOP-NKULHIL\ANALYSIS2</Server>
+    <ConnectionString>Data Source=DESKTOP-NKULHIL\ANALYSIS2;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>Aq3QjdYq8XVQaMKY1a45A5e3qZA=05/01/2023 22:10:1805/01/2023 21:58:33</TimeStamp>
+        <ID>
+          <String>BI06 DDS Case</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>RE2C0426mCgBZ2Ei4n/2fGDlOf0=05/01/2023 21:58:3305/01/2023 21:58:33</TimeStamp>
+        <ID>
+          <String>BI06 DDS Case</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MW9VQNRcSNGEwTSYdMXCuybRwaU=05/01/2023 21:58:3305/01/2023 21:58:33</TimeStamp>
+        <ID>
+          <String>Dim Age Group</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>p30rbizc+Qartb6fmhYRIuVMRiQ=05/01/2023 21:58:3305/01/2023 21:58:33</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>q+WHjQlw12ANQHHpRGa20rfch1g=05/01/2023 21:58:3305/01/2023 21:58:33</TimeStamp>
+        <ID>
+          <String>Dim Gender</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>P2PlcpX/tqtlNKiefyoH0h41e40=05/01/2023 21:58:3305/01/2023 21:58:33</TimeStamp>
+        <ID>
+          <String>Dim Case Acquisition</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>XylXI/2dpidlytSC4GvMCHEGDe8=05/01/2023 21:58:3305/01/2023 21:58:33</TimeStamp>
+        <ID>
+          <String>Dim Case Status</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EvBPuk1+UANSRh9ueyhurv72b2U=05/01/2023 21:58:3305/01/2023 21:58:33</TimeStamp>
+        <ID>
+          <String>Dim Geography</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>NTzx17v5igy/O7fo1Sgq5qPhQ+0=05/01/2023 21:58:3305/01/2023 21:58:33iZMC28aWK5Yx0T5tM3QT3GJ6+7M=05/01/2023 21:58:3305/01/2023 21:58:33</TimeStamp>
+        <ID>
+          <String>BI06 DDS Case</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.MiningStructure</Type>
+        <TimeStamp>TWn8Ch4U1cu/OCYzcuajecLfrB0=05/01/2023 22:04:0405/01/2023 22:04:04</TimeStamp>
+        <ID>
+          <String>PredictCaseStatus</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>xGSjLQjW6nDz5mWtq86X3sbVkNA=05/01/2023 21:58:3305/01/2023 21:58:33</TimeStamp>
+      <ID>
+        <String>CaseCubeTest</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>false</ProcessingComplete>
+  <LastDeployed>2023-01-05T15:10:20.223333Z</LastDeployed>
+</DeploymentSnapshot>
