@@ -10,4 +10,4 @@ Folder OLAPCube: Chứa project build các cube, mining cho Dự đoán tình tr
 
 Folder Scripts: Chứa script tạo các database
 
-Folder Visualization: Chứa các PowerBI report và Tableu dashboard
+Folder Visualization: Chứa các PowerBI report và Tableau dashboard
